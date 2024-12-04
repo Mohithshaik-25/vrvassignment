@@ -52,7 +52,7 @@ for key in task2:
 task2_df = pd.DataFrame(task2_result, columns=['Endpoint', 'Access Count'])
 
 # Task 3: Suspicious Activity Detected (Failed Login Attempts)
-failed_logins = df[df['status'] == '401']
+failed_logins = df[(df['status'] == '401') | (df['message']=="Invalid credentials")]
 failed_login_count = failed_logins['ip'].value_counts()
  #printing task3
 print("Suspecious activity detection")
